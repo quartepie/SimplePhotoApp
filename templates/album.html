@@ -1,0 +1,9 @@
+<div class="container" ng-controller="AlbCtrl">
+    <h1 style="text-align: center">Images from album {{albumId}}</h1>
+    <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="photo in photos | filter: albumPhoto ">
+        <a href="#/photos/{{photo.id}}"><img ng-src="{{photo.thumbnailUrl}}" class="img-responsive"></a>
+        <div class="descr">
+            <h5>{{photo.title}}</h5>
+        </div>
+    </div>
+</div>
