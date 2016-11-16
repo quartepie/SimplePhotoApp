@@ -1,4 +1,5 @@
 app.controller('StartController', ['$scope','GetPhotos',function ($scope, GetPhotos) {
+    $scope.limit = 30;
     GetPhotos.success(function (data) {
         $scope.photos = data;
     })
@@ -16,11 +17,12 @@ app.controller('AlbCtrl',function ($scope, GetPhotos, $routeParams) {
 
 app.controller('PhotoCtrl',function ($scope, GetPhotos, $routeParams) {
     $scope.photoId = $routeParams.photo_Id;
+    $scope.Index = $scope.photoId - 1;
     GetPhotos.success(function (data) {
         $scope.photos = data;
-        $scope.Index = $scope.photoId - 1;
         $scope.imgUrl = $scope.photos[$scope.Index].url;
         $scope.Title = $scope.photos[$scope.Index].title;
-    })
+    });
+    
 });
 

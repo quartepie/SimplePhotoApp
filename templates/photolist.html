@@ -1,11 +1,12 @@
 <div class="container" ng-controller="StartController">
     <div class="row">
-        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="photo in photos | limitTo:500">
+        <div class="item col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="photo in photos | limitTo: limit">
             <a href="#/photos/{{photo.id}}"><img ng-src="{{photo.thumbnailUrl }}" class="img-responsive"></a>
             <div class="descr">
                 <h5>{{photo.title}}</h5>
                 <a href="#/albums/{{photo.albumId}}">View album</h5></a><h5>
             </div>
         </div>
+    <button ng-click="limit = limit+50" class="btn_more">Show more</button>
     </div>
 </div>
